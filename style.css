@@ -3,3 +3,14 @@ ul {
     text-align: center;
     color: white;
 }
+
+body {
+    background-color: black; 
+    margin-top: 300px;
+    font-family: 'Aptos', Calibri, Arial, Helvetica, sans-serif;
+    font-size: 20pt;
+}
+
+li {
+    margin-bottom: 20px;
+}
