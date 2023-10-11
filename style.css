@@ -14,3 +14,8 @@ body {
 li {
     margin-bottom: 20px;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
