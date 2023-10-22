@@ -6,6 +6,27 @@
     <title>Funny Videos</title>
 
     <style>
+        body {
+            background-color: #cefad062;
+            margin-top: 15px;
+        }
+
+        .for-header {
+            background-color: black;
+        }
+
+        video {
+            border-radius: 15px;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Aptos', 'Arial';
+        }
+
         .anch {
             background-color: #24a0edc9; 
             padding: 20px 50px 20px 50px; 
@@ -16,22 +37,67 @@
             border: solid;
             border-radius: 20px;
         }
+
+        .back-button {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: black;
+            font-size: 20pt;
+            padding: 7px 70px 10px 50px;
+            background-color: rgba(80, 126, 224, 0.747);
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .per-video-style1 {
+            text-align: center;
+            background-color: powderblue;
+            margin: 0 35% 0 35%;
+            padding: 10px 0 60px 0;
+            border-radius: 55px;
+            border: black solid 2px;
+        }
     </style>
 
 </head>
 <body>
-    <div>
+    <div class="header">
+        <img src="/images/1200px-Trollface.svg.png" alt="" width="9%" height="9%">
+        <img src="/images/super-memes.png" alt="Nico's supercoole Memes" height="50%" width="50%">
+        <img src="/images/1200px-Trollface.svg.png" alt="" width="9%" height="9%">
+    </div>
 
-    <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-        <a style="color: red; font-size: 20pt;" href="/index.html">Back</a>
-    </p>
 
-    <video src="/videos/helicopter_meme.mp4" controls width="300" height="533"></video><br><br><br>
+    <div class="per-video-style1">
+
+    <h2>Helicopter Meme</h2>
+
+    <video src="/videos/helicopter_meme.mp4" controls width="300" height="533"></video><br><br><br><br>
 
     <a class="anch" href="/videos/helicopter_meme.mp4" download>Download
         <img src="/images/downloadsymbol.png" width="20" height="20">
     </a>
+    
+    </div>
+
+    <br><br>
+
+    <div class="per-video-style1">
+
+        <h2>Top 5 ways to tell if someone <br>will never get a girlfriend</h2>
+
+        <video src="/videos/vid2.mp4" controls width="300" height="533"></video><br><br><br><br>
+
+        <a class="anch" href="/videos/vid2.mp4" download>Download
+            <img src="/images/downloadsymbol.png" width="20" height="20">
+        </a>
 
     </div>
+
+    <br><p style="text-align: center;">
+        <a class="back-button" href="/index.html">
+            <img src="/images/back-arrow.svg" alt="" width="21" height="21">
+            Back</a>
+    </p>
+
 </body>
 </html>
