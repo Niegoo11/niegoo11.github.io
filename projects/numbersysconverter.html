@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Converter</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+
+        h1 {
+            font-family: 'Calibri Light', Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+            background-color: gray;
+            display: inline;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .group1 {
+            background-color: lightgray;
+            padding: 15px;
+        }
+
+        .groupheader {
+            background-color: lightgray;
+            padding: 10px;
+        }
+
+        body {
+            background-color: #444444;
+        }
+
+        form {
+            font-family: 'Kanit', sans-serif;
+            background-color: lightgray;
+            padding: 15px;
+        }
+
+        .resultstyle {
+            background-color: #BBBBBB;
+            padding: 2px;
+            border-radius: 5px;
+        }
+
+        .resultstyle2 {
+            background-color: #999999;
+            padding: 6px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #888888;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            font-family: 'Kanit', sans-serif;
+            margin-top: 30%;
+        }
+
+        a {
+            color: #111111;
+        }
+
+        .back-anch {
+            font-family: 'Kanit', sans-serif;
+            padding: 6px;
+            background-color: red;
+            border-radius: 10px;
+        }
+
+        .footerstyle {
+            background-color: #333333;
+            padding: 10px;
+            margin: 0 30% 0 30%;
+            border-radius: 50px;
+        }
+
+        .imgmail {
+            position: absolute;
+            float: left;
+            margin-top: 1px;
+        }
+
+        .imgarrow {
+            margin-top: 2px;
+            position: absolute;
+        }
+
+    </style>
+
+</head>
+<body id="background-b">
+    
+    <header>
+
+        <div class="groupheader">
+
+            <br>
+            &nbsp;&nbsp;<h1>Number-System-Converter</h1>
+            <br><br>
+
+        </div>
+
+    </header>
+
+    <br>
+
+    <main>
+
+        <form>
+
+            <label for="zinput">Number to convert</label>&nbsp;&nbsp;
+            <input type="text" id="zinput" name="zinput" placeholder="number (dez)">
+            <button>send</button>
+
+        </form>
+
+        <div class="group1" style="margin-top: 5px; font-family: 'Kanit', sans-serif;">
+            <span class="resultstyle2">Result: <span class="resultstyle">[none]</span></span>
+        </div>
+
+        <br><a href="../index.html"><img class="imgarrow" src="../images/back-arrow.svg" alt="" width="21" height="21"></a>
+
+        <!-- <a class="back-anch" href="../index.html">back</a> -->
+
+    </main>
+
+    <footer>
+
+        <div class="footerstyle">
+            <p>
+                Nicolas Diewald 2023 &copy; &nbsp; | &nbsp; <a href="mailto:3191@htl.rennweg.at">Kontakt<img class="imgmail" src="../images/mail-icon-removebg-preview.png" alt="" width="43" height="24"></a>
+            </p>
+        </div>
+
+        <!-- <a href="../index.html"><img class="imgarrow" src="../images/back-arrow.svg" alt="back" width="21" height="21"></a> -->
+
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
