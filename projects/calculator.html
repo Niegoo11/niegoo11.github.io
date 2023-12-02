@@ -31,7 +31,7 @@
             background-color: #444444;
         }
 
-        form {
+        .lform {
             font-family: 'Kanit', sans-serif;
             background-color: lightgray;
             padding: 15px;
@@ -39,7 +39,7 @@
 
         .resultstyle {
             background-color: #BBBBBB;
-            padding: 2px;
+            padding: 2px 6px 2px 5px;
             border-radius: 5px;
         }
 
@@ -52,8 +52,10 @@
         button {
             background-color: #888888;
             border: none;
-            padding: 5px;
-            border-radius: 5px;
+            padding: 5px 10px 5px 10px;
+            border-radius: 10px;
+            border: solid 2px;
+            text-decoration: underline;
         }
 
         footer {
@@ -91,6 +93,12 @@
             position: absolute;
         }
 
+        .inputtext {
+            border: solid 2px;
+            border-radius: 10px;
+            padding: 5px 10px 5px 10px;
+        }
+        
     </style>
 
 </head>
@@ -101,7 +109,7 @@
         <div class="groupheader">
 
             <br>
-            &nbsp;&nbsp;<h1>Number-System-Converter</h1>
+            &nbsp;&nbsp;<h1>Calculator</h1>
             <br><br>
 
         </div>
@@ -112,16 +120,22 @@
 
     <main>
 
-        <form>
+        <div class="lform">
 
-            <label for="zinput">Number to convert</label>&nbsp;&nbsp;
-            <input type="text" id="zinput" name="zinput" placeholder="number (dez)">
-            <button>send</button>
+            <label for="input1 input2">Numbers:</label>&nbsp;
+            <input class="inputtext" type="number" id="input1" name="input1" placeholder="first number">
+            <select class="inputtext" name="selec" id="selec">
+                    <option id="opt1" value="option1">+</option>
+                    <option id="opt2" value="option2">-</option>
+                    <option id="opt3" value="option3">*</option>
+                    <option id="opt4" value="option4">÷</option>
+            </select>
+            <input class="inputtext" type="number" id="input2" name="input2" placeholder="second number">
+            <button onclick="calc()">send</button>
 
-        </form>
-
+        </div>
         <div class="group1" style="margin-top: 5px; font-family: 'Kanit', sans-serif;">
-            <span class="resultstyle2">Result: <span class="resultstyle">[none]</span></span>
+            <span class="resultstyle2">Result: <span id="output" class="resultstyle">[none yet]</span></span>
         </div>
 
         <br><a href="../index.html"><img class="imgarrow" src="../images/back-arrow.svg" alt="" width="21" height="21"></a>
@@ -142,6 +156,6 @@
 
     </footer>
     
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>
