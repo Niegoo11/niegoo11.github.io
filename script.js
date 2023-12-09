@@ -95,8 +95,13 @@ function calc() {
             outputEl.style.color = 'red';
             outputEl.innerHTML = "Invalid Input";
         }
-
     }
+    
 
 
+}
+
+function umrechnung(x, y) {
+    y = 20;
+    x = 20;
 }
