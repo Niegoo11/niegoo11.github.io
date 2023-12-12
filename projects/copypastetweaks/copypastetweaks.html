@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy and paste</title>
+
+    <style>
+
+        body {
+            margin: 20px;
+        }
+
+        pre {
+            font-family: 'Consolas';
+            background-color: #CCCCCC;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h1,h2,h3,h4,h5,h6 {
+            font-family: 'Calibri Light', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        p {
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+        }
+
+        a {
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+            background-color: lightgoldenrodyellow;
+        }
+
+        section {
+            background-color: #EEEEEE;
+            padding: 10px;
+            border-radius: 25px;
+        }
+
+        hr {
+            color: white;
+            border-style: solid;
+        }
+
+        .backanch {
+            color: red;
+            background-color: white;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <section>
+    
+    <h2>Import custom font:</h2>
+
+    <pre>
+@font-face {
+font-family: 'customfont';
+src: url([url zu Pfad]) format("opentype");
+}</pre>
+
+    <p>Danach dann ganz einfach mit <code>font-family</code> aufrufen</p>
+
+    <pre>font-family: 'customfont';</pre>
+
+    <p>Beispiel Font: <a target="_blank" href="../../files/KnightWarrior-w16n8.otf">Knight Warrior</a></p>
+
+    </section>
+
+    <hr>
+
+    <section>
+
+        <h2>Tabelle Beispiel</h2>
+
+        <p>Simple Tabelle mit Beispiel Font: <a target="_blank" href="simpletable.html">Simple Tabelle</a></p>
+
+    </section>
+
+    <br>
+
+    <a class="backanch" href="../../index.html">back</a>
+
+</body>
+</html>
