@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="manifest" href="manifest.webmanifest">
+
+    <title>Calculator v2</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+        }
+
+        table {
+            width: 100%;
+            height: 70vh;
+            color: white;
+            background-color: rgb(35, 35, 35);
+        }
+
+        td {
+            width: 25%;
+            text-align: center;
+            font-size: 24px;
+            background-color: rgb(31, 31, 31);
+        }
+
+        td:hover {
+            background-color: rgb(40, 40, 40);
+            cursor: pointer;
+        }
+
+        #resultArea {
+            height: 30vh;
+            background: rgb(25,25,25);
+            background: linear-gradient(0deg, rgba(26,26,26,1) 0%, rgba(45,45,45,1) 100%);
+            color: white;
+            font-size: 64px;
+            display: flex;
+            justify-content: end;
+            align-items: flex-end;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        #equals {
+            background-color: rgb(85, 78, 214);
+        }
+
+        #equals:hover {
+            background-color: rgb(115, 110, 218);
+        }
+
+        .hl {
+            background-color: rgb(35, 35, 35);
+        }
+
+        .hl:hover {
+            background-color: rgb(50, 50, 50);
+        }
+    </style>
+
+    <script>
+        function appendOperation(operation) {
+            let container = document.getElementById('resultArea');
+            if (container.innerHTML == 0 || container.innerHTML === 3) {
+                if (operation == " ÷ " || operation == " · " || operation == " + " || operation == ",") {
+                    container.innerHTML += operation;
+                } else {
+                    container.innerHTML = operation;
+                }
+            } else {
+                container.innerHTML += operation;
+            }
+        }
+
+        function calcResult() {
+            let container = document.getElementById('resultArea');
+            let result = convertToCalc(container.innerHTML);
+            if (convertToUI(eval(result)) == "Infinity" || convertToUI(eval(result)) == "NaN") {
+                container.style.color = "red";
+                container.innerHTML = 0;
+                setTimeout(function() {
+                    container.style.color = "white";
+                }, 500);
+            } else {
+                container.innerHTML = convertToUI(eval(result));
+            }
+        }
+
+        function deleteLast() {
+            let container = document.getElementById('resultArea');
+            if (container.innerHTML.length == 1 || container.innerHTML.length == 3) {
+                if (container.innerHTML.length == 3) {
+                    if (container.innerHTML == " ÷ " || container.innerHTML == " · " || container.innerHTML == " + " || container.innerHTML == "-") {
+                        container.innerHTML = 0;
+                    } else {
+                        container.innerHTML = container.innerHTML.slice(0, -1);
+                    }
+                } else {
+                    container.innerHTML = 0;
+                }
+            } else if (container.innerHTML == 0) {
+                // nothing here hehe
+            } else {
+                if (container.innerHTML.endsWith(' ')) {
+                    container.innerHTML = container.innerHTML.slice(0, -3);
+                } else {
+                    container.innerHTML = container.innerHTML.slice(0, -1);
+                }
+            }
+        }
+
+        function clear0() {
+            document.getElementById('resultArea').innerHTML = 0;
+        }
+
+        function xPow() {
+            let container = document.getElementById('resultArea');
+            let result = convertToCalc(container.innerHTML);
+            result = eval(result);
+            container.innerHTML = convertToUI(result * result);
+        }
+
+        function xSqrt() {
+            let container = document.getElementById('resultArea');
+            let result = convertToCalc(container.innerHTML);
+            result = eval(result);
+            container.innerHTML = convertToUI(Math.sqrt(result));
+        }
+
+        function Help() {
+            alert("\nWtf wie du weißt nicht wie man einen Taschenrechner bedient?!");
+        }
+
+        function eurToAme(symbol) {
+            if (symbol === " · ") {
+                return " * ";
+            } else if (symbol === " , ") {
+                return " . ";
+            } else if(symbol === " ÷ ") {
+                return " / ";
+            } else {
+                return symbol;
+            }
+        }
+
+        function convertToCalc(conv) {
+            let result = "";
+            conv = conv.toString();
+            for (let i = 0; i < conv.length; i++) {
+                let symbol = conv.charAt(i);
+                if (symbol == "·") {
+                    result += "*";
+                } else if (symbol == ",") {
+                    result += ".";
+                } else if (symbol == "÷") {
+                    result += "/";
+                } else {
+                    result += symbol;
+                }
+            }
+            return result;
+        }
+
+        function convertToUI(conv) {
+            let result = "";
+            conv = conv.toString();
+            for (let i = 0; i < conv.length; i++) {
+                let symbol = conv.charAt(i);
+                    if (symbol == ".") {
+                    result += ",";
+                    } else {
+                        result += symbol;
+                    }
+                }
+            return result;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div id="resultArea">0</div>
+
+        <table>
+            <tr>
+                <td style="font-family: 'Cambria Math', math" onclick="xSqrt()">²√</td>
+                <td onclick="xPow()">x²</td>
+                <td onclick="clear0()">C</td>
+                <td onclick="deleteLast()">DEL</td>
+            </tr>
+            <tr>
+                <td onclick="appendOperation(7)">7</td>
+                <td onclick="appendOperation(8)">8</td>
+                <td onclick="appendOperation(9)">9</td>
+                <td onclick="appendOperation(' ÷ ')" class="hl">÷</td>
+            </tr>
+            <tr>
+                <td onclick="appendOperation(4)">4</td>
+                <td onclick="appendOperation(5)">5</td>
+                <td onclick="appendOperation(6)">6</td>
+                <td onclick="appendOperation(' · ')" class="hl">·</td>
+            </tr>
+            <tr>
+                <td onclick="appendOperation(1)">1</td>
+                <td onclick="appendOperation(2)">2</td>
+                <td onclick="appendOperation(3)">3</td>
+                <td onclick="appendOperation(' + ')" class="hl">+</td>
+            </tr>
+            <tr>
+                <td onclick="appendOperation(0)">0</td>
+                <td onclick="appendOperation(',')">,</td>
+                <td onclick="calcResult()" id="equals">=</td>
+                <td onclick="appendOperation(' - ')" class="hl">-</td>
+            </tr>
+        </table>
+
+</body>
+
+</html>

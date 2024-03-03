@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,24 +20,24 @@
 
         .group1 {
             background-color: lightgray;
-            border: solid 2px;
+            border: solid 2px #444444;
             padding: 15px;
         }
 
         .groupheader {
             background-color: lightgray;
             padding: 10px;
-            border: solid 2px;
+            border: solid 2px #444444;
         }
 
         body {
-            background-color: white;
+            background-color: #444444;
         }
 
         .lform {
             font-family: 'Kanit', sans-serif;
             background-color: lightgray;
-            border: solid 2px;
+            border: solid 2px #444444;
             padding: 15px;
         }
 
@@ -62,7 +63,6 @@
         }
 
         footer {
-            text-align: center;
             font-family: 'Kanit', sans-serif;
             margin-top: 25%;
         }
@@ -79,11 +79,11 @@
         }
 
         .footerstyle {
-            border: solid 2px;
-            background-color: #CCCCCC;
+            border: solid 2px #444444;
+            background-color: #333333;
             padding: 10px;
-         /* margin: 0 30% 0 30%; */
             border-radius: 50px;
+            /* margin: 0 30% 0 30%; */
         }
 
         .imgmail {
@@ -105,19 +105,19 @@
 
         aside {
             display: inline-block;
-            background-color: #444444;
+            background-color: #333333;
             padding: 10px;
         }
 
         .bggray {
             background-color: lightgray;
         }
-        
     </style>
 
 </head>
+
 <body id="background-b">
-    
+
     <header>
 
         <div class="groupheader">
@@ -139,10 +139,10 @@
             <label for="input1 input2">Numbers:</label>&nbsp;
             <input class="inputtext" type="number" id="input1" name="input1" placeholder="first number">
             <select class="inputtext" name="selec" id="selec">
-                    <option id="opt1" value="option1">+</option>
-                    <option id="opt2" value="option2">-</option>
-                    <option id="opt3" value="option3">*</option>
-                    <option id="opt4" value="option4">÷</option>
+                <option id="opt1" value="option1">+</option>
+                <option id="opt2" value="option2">-</option>
+                <option id="opt3" value="option3">*</option>
+                <option id="opt4" value="option4">÷</option>
             </select>
             <input class="inputtext" type="number" id="input2" name="input2" placeholder="second number">
             <button onclick="calc()">send</button>
@@ -156,12 +156,12 @@
 
         <aside>
 
-            <a class="bggray" href="../index.html">
-                <img class="imgarrow bggray" src="../images/back-arrow.svg" alt="" width="25" height="25">
+            <a class="bggray" href="../../../index.html">
+                <img class="imgarrow bggray" src="../../../images/back-arrow.svg" alt="" width="25" height="25">
             </a><br><br>
 
-            <a class="bggray" href="calculator.html">
-                <img class="bggray" src="../images/dark-mode-icon.png" alt="" width="25" height="25">
+            <a class="bggray" href="calculator-lightmode.html">
+                <img class="bggray" src="../../../images/light-mode-icon.png" alt="" width="25" height="25">
             </a>
 
         </aside>
@@ -173,15 +173,19 @@
     <footer>
 
         <div class="footerstyle">
-            <p>
-                Nicolas Diewald 2023 &copy; &nbsp; | &nbsp; <a href="mailto:3191@htl.rennweg.at">Kontakt<img class="imgmail" src="../images/mail-icon-removebg-preview.png" alt="" width="43" height="24"></a>
+
+            <p style="text-align: center;">
+                Nicolas Diewald 2023 &copy; &nbsp; | &nbsp; <a href="mailto:3191@htl.rennweg.at">Kontakt<img
+                        class="imgmail" src="../../../images/mail-icon-removebg-preview.png" alt="" width="43"
+                        height="24"></a>
             </p>
         </div>
 
         <!-- <a href="../index.html"><img class="imgarrow" src="../images/back-arrow.svg" alt="back" width="21" height="21"></a> -->
 
     </footer>
-    
+
     <script src="../script.js"></script>
 </body>
+
 </html>
