@@ -69,7 +69,7 @@
         function appendOperation(operation) {
             let container = document.getElementById('resultArea');
             if (container.innerHTML == 0 || container.innerHTML === 3) {
-                if (operation == " ÷ " || operation == " · " || operation == " + " || operation == ",") {
+                if (operation == " ÷ " || operation == " × " || operation == " + " || operation == ",") {
                     container.innerHTML += operation;
                 } else {
                     container.innerHTML = operation;
@@ -79,15 +79,20 @@
             }
         }
 
+        function error() {
+            let container = document.getElementById('resultArea');
+            container.style.color = "red";
+            container.innerHTML = 0;
+            setTimeout(function() {
+                container.style.color = "white";
+            }, 500);
+        }
+
         function calcResult() {
             let container = document.getElementById('resultArea');
             let result = convertToCalc(container.innerHTML);
             if (convertToUI(eval(result)) == "Infinity" || convertToUI(eval(result)) == "NaN") {
-                container.style.color = "red";
-                container.innerHTML = 0;
-                setTimeout(function() {
-                    container.style.color = "white";
-                }, 500);
+                error();
             } else {
                 container.innerHTML = convertToUI(eval(result));
             }
@@ -97,7 +102,7 @@
             let container = document.getElementById('resultArea');
             if (container.innerHTML.length == 1 || container.innerHTML.length == 3) {
                 if (container.innerHTML.length == 3) {
-                    if (container.innerHTML == " ÷ " || container.innerHTML == " · " || container.innerHTML == " + " || container.innerHTML == "-") {
+                    if (container.innerHTML == " ÷ " || container.innerHTML == " × " || container.innerHTML == " + " || container.innerHTML == "-") {
                         container.innerHTML = 0;
                     } else {
                         container.innerHTML = container.innerHTML.slice(0, -1);
@@ -137,9 +142,9 @@
         function Help() {
             alert("\nWtf wie du weißt nicht wie man einen Taschenrechner bedient?!");
         }
-
+        // ×
         function eurToAme(symbol) {
-            if (symbol === " · ") {
+            if (symbol === " × ") {
                 return " * ";
             } else if (symbol === " , ") {
                 return " . ";
@@ -155,7 +160,7 @@
             conv = conv.toString();
             for (let i = 0; i < conv.length; i++) {
                 let symbol = conv.charAt(i);
-                if (symbol == "·") {
+                if (symbol == "×") {
                     result += "*";
                 } else if (symbol == ",") {
                     result += ".";
@@ -182,11 +187,26 @@
             return result;
         }
 
+        function checkForErrors() {
+            el = document.getElementById("resultArea");
+            if (el.innerHTML.includes("Infinity") || el.innerHTML.includes("NaN")) {
+                error();
+            }
+            if (el.innerHTML.length > 40) {
+                deleteLast();
+            }
+            if (el.innerHTML)
+        }
+
+        function loadJS() {
+            setInterval(checkForErrors, 1000 / 60);
+        }
+
     </script>
 
 </head>
 
-<body>
+<body onload="loadJS()">
 
     <div id="resultArea">0</div>
 
@@ -207,7 +227,7 @@
                 <td onclick="appendOperation(4)">4</td>
                 <td onclick="appendOperation(5)">5</td>
                 <td onclick="appendOperation(6)">6</td>
-                <td onclick="appendOperation(' · ')" class="hl">·</td>
+                <td onclick="appendOperation(' × ')" class="hl">×</td>
             </tr>
             <tr>
                 <td onclick="appendOperation(1)">1</td>
