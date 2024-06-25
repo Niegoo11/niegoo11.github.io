@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Link Converter</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+    .karla-karla {
+        font-family: "Karla", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    body {
+        font-family: karla, sans-serif;
+    }
+
+    #copyButton {
+        display: none;
+    }
+
+    #successCopy {
+        color: yellowgreen;
+    }
+</style>
+
+<body>
+    <h1>TikTok Link Converter</h1>
+    <form id="linkForm">
+        <label for="shortUrl">Kurzer TikTok Link:</label>
+        <input type="text" id="shortUrl" name="shortUrl" required>
+        <button type="submit">Konvertieren</button>
+    </form>
+    <h2>Konvertierter Link:</h2>
+    <p id="longUrl"></p>
+    <p id="successCopy"></p>
+
+    <button id="copyButton" onclick="copyFunction()">Copy</button>
+
+
+    <a href="../index.html">back</a>
+
+    <script>
+        document.getElementById('linkForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const shortUrl = document.getElementById('shortUrl').value;
+            convertTikTokLink(shortUrl);
+        });
+
+        async function convertTikTokLink(shortUrl) {
+            try {
+                const response = await fetch(`http://localhost:3000/convert?url=${encodeURIComponent(shortUrl)}`);
+                const data = await response.json();
+                let longUrl = data.longUrl;
+
+                // Entferne die Query-Parameter von der URL
+                longUrl = longUrl.split('?')[0];
+
+                document.getElementById('longUrl').textContent = longUrl;
+                document.getElementById('copyButton').style.display = "inline";
+            } catch (error) {
+                console.error('Fehler bei der Konvertierung des Links:', error);
+                document.getElementById('longUrl').textContent = 'Fehler bei der Konvertierung des Links';
+            }
+        }
+
+        function copyFunction() {
+            var copyText = document.getElementById("longUrl");
+
+            // Select the text field
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText.value);
+
+            // Alert the copied text
+            alert("Copied the text: " + copyText.value);
+        } 
+    </script>
+</body>
+
+</html>
